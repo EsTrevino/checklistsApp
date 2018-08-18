@@ -39,35 +39,28 @@ class ChecklistViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
-            var isChecked = false
             
             if indexPath.row == 0{
                 row0Checked = !row0Checked
-                isChecked = row0Checked
             }
             if indexPath.row == 1{
                 row1Checked = !row1Checked
-                isChecked = row1Checked
             }
             if indexPath.row == 2{
                 row2Checked = !row2Checked
-                isChecked = row2Checked
             }
             if indexPath.row == 3{
                 row3Checked = !row3Checked
-                isChecked = row3Checked
             }
             if indexPath.row == 4{
                 row4Checked = !row4Checked
-                isChecked = row4Checked
             }
-            if isChecked {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+            
+            configureCheckmark(for: cell, at: indexPath)
+
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     
@@ -113,7 +106,6 @@ class ChecklistViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
-
 }
 
 
